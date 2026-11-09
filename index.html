@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="ka">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestaltholic — გეშტალტთერაპია | უსაფრთხო სივრცე თვითშემეცნებისთვის</title>
+  <meta name="description"
+    content="გეშტალტთერაპია საქართველოში და ონლაინ. ინდივიდუალური, წყვილთა და ჯგუფური თერაპია. იპოვეთ შინაგანი ჰარმონია და ემოციური თავისუფლება.">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%238EA589'/><circle cx='50' cy='50' r='20' fill='%23FAF6EF'/></svg>">
+
+  <!-- Google Fonts: Georgian and Serif/Sans pairings -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Sans+Georgian:wght@300;400;500;600;700&family=Noto+Serif+Georgian:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ==========================================================================
+       SITE NAVIGATION
+       ========================================================================== -->
+  <header class="site-nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand-logo" aria-label="Gestaltholic Home">
+        <span class="brand-icon"></span>
+        <span>Gestaltholic</span>
+      </a>
+
+      <nav>
+        <ul class="nav-links" id="siteNavLinks">
+          <li class="mobile-drawer-header">
+            <div class="mobile-drawer-title-group">
+              <span class="brand-icon" style="width: 26px; height: 26px;"></span>
+              <span class="mobile-drawer-title" data-i18n="nav_menu">მენიუ</span>
+            </div>
+            <button type="button" class="mobile-drawer-close-btn" id="mobileDrawerCloseBtn" aria-label="Close menu">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+              <span data-i18n="nav_close">დახურვა</span>
+            </button>
+          </li>
+
+          <li><a href="index.html" class="nav-link active"><span class="nav-icon">🌿</span> მთავარი</a></li>
+          <li><a href="services.html" class="nav-link"><span class="nav-icon">📋</span> სერვისები</a></li>
+          <li><a href="booking.html" class="nav-link"><span class="nav-icon">📅</span> განრიგი & დაჯავშნა</a></li>
+
+          <li class="mobile-menu-action">
+            <a href="booking.html" class="btn-pill btn-sage mobile-menu-btn">
+              📅 კონსულტაციის დაჯავშნა
+            </a>
+          </li>
+          <li class="mobile-menu-action">
+            <a href="https://wa.me/995599011009?text=გამარჯობა%20ნატა,%20მსურს%20კონსულტაციაზე%20ჩაწერა" target="_blank"
+              rel="noopener noreferrer" class="btn-pill btn-whatsapp mobile-menu-btn">
+              💬 WhatsApp: 599 011 009
+            </a>
+          </li>
+          <li class="mobile-drawer-call">
+            <a href="tel:+995599011009" class="drawer-phone-link">
+              📞 დარეკვა: +995 599 01 10 09
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Calming sound chime trigger -->
+        <button id="soundToggleBtn" class="sound-toggle-btn" title="დამამშვიდებელი ზარი"
+          aria-label="Play soothing chime">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+          </svg>
+        </button>
+
+        <!-- Language toggle -->
+        <div class="lang-toggle" role="group" aria-label="Language selector">
+          <button type="button" class="lang-btn active" data-lang="ka">ქარ</button>
+          <button type="button" class="lang-btn" data-lang="en">EN</button>
+        </div>
+
+        <!-- WhatsApp Quick Text -->
+        <a href="https://wa.me/995599011009?text=გამარჯობა%20ნატა,%20მსურს%20კონსულტაციაზე%20ჩაწერა" target="_blank"
+          rel="noopener noreferrer" class="btn-pill btn-whatsapp nav-desktop-btn"
+          style="padding: 9px 18px; font-size: 0.88rem;">
+          💬 WhatsApp
+        </a>
+
+        <!-- Main Booking CTA -->
+        <a href="booking.html" class="btn-pill btn-sage nav-desktop-btn"
+          style="padding: 10px 22px; font-size: 0.92rem;">
+          დაჯავშნა
+        </a>
+
+        <button id="mobileNavToggleBtn" class="mobile-nav-toggle" aria-label="Toggle Navigation Menu">
+          <span class="hamburger-bars">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+          <span class="hamburger-label" data-i18n="nav_menu">მენიუ</span>
+        </button>
+      </div>
+    </div>
+  </header>
+  <div id="mobileNavBackdrop" class="mobile-nav-backdrop"></div>
+
+  <!-- ==========================================================================
+       HERO SECTION (Featuring Images 1, 2, 4 References)
+       ========================================================================== -->
+  <section class="hero-section">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge-wrap">
+          <span class="hero-badge" data-cms="hero_badge">
+            ✨ უსაფრთხო, ემპათიური სივრცე თქვენთვის
+          </span>
+        </div>
+
+        <h1 class="hero-title" data-cms="hero_title">
+          იპოვე შინაგანი ჰარმონია და <span class="highlight">ემოციური თავისუფლება</span>
+        </h1>
+
+        <p class="hero-subtitle" data-cms="hero_subtitle">
+          გეშტალტთერაპია — აქ და ამჟამად. სივრცე, სადაც არავინ განგსჯით. აღმოაჩინეთ საკუთარი რესურსები ინდივიდუალურ,
+          წყვილთა და ჯგუფურ სესიებზე.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="booking.html" class="btn-pill btn-sage">
+            <span data-cms="hero_cta">კონსულტაციის დაჯავშნა</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+          <a href="https://wa.me/995599011009?text=გამარჯობა%20ნატა,%20მსურს%20კონსულტაციაზე%20ჩაწერა" target="_blank"
+            rel="noopener noreferrer" class="btn-pill btn-whatsapp">
+            💬 WhatsApp (599 011 009)
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-number" data-cms="hero_stat1_num">8+ წელი</span>
+            <span class="stat-label" data-cms="hero_stat1_lbl">პრაქტიკული გამოცდილება</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" data-cms="hero_stat2_num">1,200+</span>
+            <span class="stat-label" data-cms="hero_stat2_lbl">ჩატარებული სესია</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" data-cms="hero_stat3_num">100%</span>
+            <span class="stat-label" data-cms="hero_stat3_lbl">კონფიდენციალურობა და ეთიკა</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Visual Card: Top-Down Circle Art & Interactive Controls (Images 1, 2, 4) -->
+      <div class="hero-visual-card">
+        <div class="circle-illustration-container">
+          <div class="circle-backdrop"></div>
+
+          <!-- Authentic user reference artwork -->
+          <img src="circle_people_transparent.png" alt="Gestalt Therapy Circle of Connection" class="circle-art">
+
+          <!-- Reference Image 1: Floating Tactile Pill Buttons in the Center of Circle -->
+          <div class="circle-pills-overlay">
+            <a href="booking.html?format=online" class="interactive-pill online selected">
+              ონლაინი
+            </a>
+            <a href="booking.html?format=offline" class="interactive-pill offline">
+              ოფლაინი
+            </a>
+          </div>
+        </div>
+
+        <!-- Reference Image 2: Three Modality Chips below the circle -->
+        <div class="visual-card-modalities">
+          <a href="services.html#individual" class="modality-chip individual selected">
+            ინდივიდუალური<br>თერაპია
+          </a>
+          <a href="services.html#couples" class="modality-chip couples">
+            წყვილთა<br>თერაპია
+          </a>
+          <a href="services.html#group" class="modality-chip group">
+            ჯგუფური<br>თერაპია
+          </a>
+        </div>
+
+        <!-- Reference Image 4: Sage Green Consultation Button -->
+        <div class="visual-card-action">
+          <a href="booking.html" class="btn-pill btn-book-hero">
+            კონსულტაციის დაჯავშნა
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       HOW IT WORKS - 3 SIMPLE STEPS (Clear & Accessible for Everyone)
+       ========================================================================== -->
+  <section class="section"
+    style="padding: 38px 0; background-color: #FFFFFF; border-top: 1px solid var(--color-border-subtle); border-bottom: 1px solid var(--color-border-subtle);">
+    <div class="container">
+      <div style="text-align: center; max-width: 600px; margin: 0 auto 24px;">
+        <span class="section-tag" style="background: var(--color-sage-light); color: var(--color-sage-active);">მარტივი
+          დაწყება</span>
+        <h2 style="font-size: 1.8rem; color: var(--color-espresso); margin-top: 8px; margin-bottom: 6px;" data-cms="steps_title">როგორ დავიწყოთ
+          თერაპია?</h2>
+        <p style="font-size: 0.96rem; color: var(--color-text-secondary); margin: 0;" data-cms="steps_subtitle">სულ 3 მარტივი ნაბიჯი თქვენი
+          სიმშვიდისა და ჰარმონიისთვის</p>
+      </div>
+
+      <div class="simple-steps-grid">
+        <div class="simple-step-card">
+          <div class="simple-step-num">1</div>
+          <div>
+            <h3 class="simple-step-title" data-cms="step1_title">აირჩიეთ მიმართულება</h3>
+            <p class="simple-step-desc" data-cms="step1_desc">ინდივიდუალური, წყვილთა ან ჯგუფური შეხვედრა თქვენი საჭიროების მიხედვით.</p>
+          </div>
+        </div>
+
+        <div class="simple-step-card">
+          <div class="simple-step-num">2</div>
+          <div>
+            <h3 class="simple-step-title" data-cms="step2_title">შეარჩიეთ თქვენი დრო</h3>
+            <p class="simple-step-desc" data-cms="step2_desc">აირჩიეთ მოსახერხებელი საათი კალენდარში ან პირდაპირ მოგვწერეთ WhatsApp-ში.</p>
+          </div>
+        </div>
+
+        <div class="simple-step-card">
+          <div class="simple-step-num">3</div>
+          <div>
+            <h3 class="simple-step-title" data-cms="step3_title">შეხვდით ნატას</h3>
+            <p class="simple-step-desc" data-cms="step3_desc">კონფიდენციალური შეხვედრა ონლაინ (Zoom) ან პირისპირ კაბინეტში (ვაკე: თამარაშვილის ქ. / პლეხანოვი: აღმაშენებლის გამზ.).</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 24px;">
+        <a href="https://wa.me/995599011009?text=გამარჯობა%20ნატა,%20მსურს%20კონსულტაციაზე%20ჩაწერა" target="_blank"
+          rel="noopener noreferrer" class="btn-pill btn-whatsapp" style="font-size: 1rem; padding: 12px 26px;">
+          💬 პირდაპირი კონტაქტი WhatsApp-ში: 599 011 009
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       GESTALT PHILOSOPHY / PILLARS (Clean text cards, NO AI images)
+       ========================================================================== -->
+  <section class="section" style="background-color: var(--color-bg-card-subtle);">
+    <div class="container">
+      <div class="section-header" style="text-align: center; max-width: 680px; margin: 0 auto 36px;">
+        <span class="section-tag" style="background: #FFFFFF;" data-cms="pillars_tag">გეშტალტ-მიდგომა</span>
+        <h2 class="section-title" data-cms="pillars_title">როგორ გეხმარებათ თერაპია</h2>
+        <p class="section-subtitle" data-cms="pillars_subtitle">
+          გეშტალტთერაპიაში ჩვენ არ ვეძებთ „დამნაშავეს“ — ჩვენ ვიკვლევთ, როგორ ცხოვრობთ აქ და ამჟამად, და როგორ
+          აღმოაჩინოთ შინაგანი სიმშვიდე.
+        </p>
+      </div>
+
+      <div class="philosophy-grid">
+        <div class="philosophy-card">
+          <span style="font-size: 1.8rem; display: block; margin-bottom: 10px;">🌱</span>
+          <h4 data-cms="pillar1_title">აქ და ამჟამად</h4>
+          <p data-cms="pillar1_desc">ფოკუსირება მიმდინარე გამოცდილებაზე, რეალურ განცდებსა და შეგრძნებებზე აწმყოში.</p>
+        </div>
+
+        <div class="philosophy-card">
+          <span style="font-size: 1.8rem; display: block; margin-bottom: 10px;">🕊️</span>
+          <h4 data-cms="pillar2_title">სხეულებრივი გაცნობიერება</h4>
+          <p data-cms="pillar2_desc">სხეული ყოველთვის სიმართლეს ამბობს — ემოციების ამოცნობა ფიზიკური შეგრძნებებით.</p>
+        </div>
+
+        <div class="philosophy-card">
+          <span style="font-size: 1.8rem; display: block; margin-bottom: 10px;">🤝</span>
+          <h4 data-cms="pillar3_title">უსაფრთხო კონტაქტი</h4>
+          <p data-cms="pillar3_desc">თანასწორი, მიმღები და უსაფრთხო ურთიერთობა განსჯისა და შეფასებების გარეშე.</p>
+        </div>
+
+        <div class="philosophy-card">
+          <span style="font-size: 1.8rem; display: block; margin-bottom: 10px;">⭕</span>
+          <h4 data-cms="pillar4_title">დაუსრულებელი გეშტალტი</h4>
+          <p data-cms="pillar4_desc">წარსულის გადაუჭრელი სიტუაციების გაცნობიერება და მშვიდობიანი დასრულება.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       WHATSAPP DIRECT BOOKING CALLOUT
+       ========================================================================== -->
+  <section class="section" style="padding: 40px 0;">
+    <div class="container">
+      <div
+        style="background: #FFFFFF; border: 1.5px solid rgba(37, 211, 102, 0.35); border-radius: var(--radius-lg); padding: 36px 28px; text-align: center; box-shadow: var(--shadow-card); max-width: 820px; margin: 0 auto;">
+        <span style="font-size: 2.2rem; display: block; margin-bottom: 10px;">📱</span>
+        <h3 style="font-size: 1.7rem; color: var(--color-espresso); margin-bottom: 8px;" data-cms="callout_title">
+          გაქვთ შეკითხვები ან გსურთ პირდაპირ ჩაწერა?
+        </h3>
+        <p style="color: var(--color-text-secondary); font-size: 1rem; max-width: 580px; margin: 0 auto 22px;" data-cms="callout_desc">
+          მოგვწერეთ პირდაპირ WhatsApp-ში. ნატა გიპასუხებთ და ერთად შეარჩევთ თქვენთვის მოსახერხებელ დროს.
+        </p>
+        <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+          <a href="https://wa.me/995599011009?text=გამარჯობა%20ნატა,%20მსურს%20კონსულტაციაზე%20ჩაწერა" target="_blank"
+            rel="noopener noreferrer" class="btn-pill btn-whatsapp" style="font-size: 1.05rem;">
+            💬 WhatsApp: 599 011 009
+          </a>
+          <a href="booking.html" class="btn-pill btn-outline">
+            📅 განრიგის ნახვა
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       NEWS & UPDATES / სიახლეები & რჩევები (CMS Managed via Admin)
+       ========================================================================== -->
+  <section class="section" id="newsSection" style="background-color: #FFFFFF; border-top: 1px solid var(--color-border-subtle); border-bottom: 1px solid var(--color-border-subtle);">
+    <div class="container">
+      <div class="section-header" style="text-align: center; max-width: 680px; margin: 0 auto 36px;">
+        <span class="section-tag" style="background: var(--color-sage-light); color: var(--color-sage-active);">სიახლეები & რჩევები</span>
+        <h2 class="section-title">ბოლო სიახლეები & ანონსები</h2>
+        <p class="section-subtitle">
+          გაეცანით გეშტალტთერაპიის სიახლეებს, მიმდინარე ჯგუფებსა და საინტერესო სტატიებს.
+        </p>
+      </div>
+
+      <div id="newsGridContainer" class="news-grid">
+        <!-- Rendered dynamically by booking.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       TESTIMONIALS
+       ========================================================================== -->
+  <section class="section" style="background-color: var(--color-bg-card-subtle);">
+    <div class="container">
+      <div class="section-header" style="text-align: center; max-width: 680px; margin: 0 auto 36px;">
+        <span class="section-tag" style="background: #FFFFFF;">გამოცდილება</span>
+        <h2 class="section-title">რას ამბობენ კლიენტები</h2>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+        <div
+          style="background: #FFFFFF; border-radius: var(--radius-md); padding: 26px 22px; border: 1px solid var(--color-border-subtle); box-shadow: var(--shadow-card);">
+          <p
+            style="font-family: var(--font-serif); font-style: italic; font-size: 1.02rem; margin-bottom: 16px; color: var(--color-espresso);">
+            „ნატასთან თერაპიამ დამანახა, რამდენად უგულებელვყოფდი საკუთარ საზღვრებს. რამდენიმე თვეში ჩემი შფოთვა
+            საგრძნობლად შემცირდა.“
+          </p>
+          <div style="font-size: 0.85rem; font-weight: 700; color: var(--color-sage-active);">მარიამ კ. • ინდივიდუალური
+            თერაპია</div>
+        </div>
+
+        <div
+          style="background: #FFFFFF; border-radius: var(--radius-md); padding: 26px 22px; border: 1px solid var(--color-border-subtle); box-shadow: var(--shadow-card);">
+          <p
+            style="font-family: var(--font-serif); font-style: italic; font-size: 1.02rem; margin-bottom: 16px; color: var(--color-espresso);">
+            „ჩვენი ურთიერთობა ჩიხში იყო. ნატას ნეიტრალურმა და ემპათიურმა ხელმძღვანელობამ მოგვცა შესაძლებლობა, პირველად
+            მოგვესმინა ერთმანეთისთვის.“
+          </p>
+          <div style="font-size: 0.85rem; font-weight: 700; color: var(--color-terracotta-active);">დავითი და გვანცა •
+            წყვილთა თერაპია</div>
+        </div>
+
+        <div
+          style="background: #FFFFFF; border-radius: var(--radius-md); padding: 26px 22px; border: 1px solid var(--color-border-subtle); box-shadow: var(--shadow-card);">
+          <p
+            style="font-family: var(--font-serif); font-style: italic; font-size: 1.02rem; margin-bottom: 16px; color: var(--color-espresso);">
+            „ჯგუფურ თერაპიაში მონაწილეობა ჩემი საუკეთესო გადაწყვეტილება იყო. გავაცნობიერე, რომ ჩემს განცდებში მარტო არ
+            ვარ.“
+          </p>
+          <div style="font-size: 0.85rem; font-weight: 700; color: var(--color-amber-active);">ლევან ბ. • ჯგუფური
+            გეშტალტი</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SITE FOOTER
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo" style="color: #FFFFFF;">
+            <span class="brand-icon"></span>
+            <span>Gestaltholic</span>
+          </a>
+          <p data-cms="footer_about">
+            გეშტალტთერაპიის პროფესიული პრაქტიკა. ჰოლისტური მიდგომა ემოციური ჯანმრთელობის, თვითშემეცნებისა და ჯანსაღი
+            ურთიერთობებისთვის.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">გვერდები</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">მთავარი</a></li>
+            <li><a href="services.html">თერაპიის სერვისები</a></li>
+            <li><a href="booking.html">განრიგი & დაჯავშნა</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">სერვისები</h4>
+          <ul class="footer-links">
+            <li><a href="services.html#individual">ინდივიდუალური თერაპია</a></li>
+            <li><a href="services.html#couples">წყვილთა თერაპია</a></li>
+            <li><a href="services.html#group">ჯგუფური თერაპია</a></li>
+            <li><a href="booking.html">სლოტების კალენდარი</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">კონტაქტი</h4>
+          <div class="footer-contact-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <span>
+              <strong>თბილისის ლოკაციები:</strong><br>
+              • პლეხანოვი, აღმაშენებლის გამზირი<br>
+              • ვაკე, მიხეილ თამარაშვილის ქუჩა
+            </span>
+          </div>
+          <div class="footer-contact-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+              </path>
+            </svg>
+            <a href="https://wa.me/995599011009" target="_blank" style="color: #25D366; font-weight: 700;">+995 599 01 10 09 (WhatsApp)</a>
+          </div>
+          <div class="footer-contact-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+            <a href="https://instagram.com/gestaltholic" class="instagram-link" target="_blank" rel="noopener noreferrer" style="color: #E1306C; font-weight: 600;">
+              Instagram: @gestaltholic
+            </a>
+          </div>
+          <div class="footer-contact-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <a href="mailto:contact@gesthaltholik.ge" class="email-link" style="color: #FFFFFF;">
+              contact@gesthaltholik.ge
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-copyright-trigger" title="© Gestaltholic" style="cursor: default;">© 2026 Gestaltholic. ყველა უფლება დაცულია.</div>
+        <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+          <span>EAGT ეთიკის სტანდარტები.</span>
+          <!-- Developer Settings Button (Hidden from regular visitors, visible only in admin mode) -->
+          <button type="button" class="admin-trigger-btn" data-open-developer title="Developer Settings">
+            ⚙️ Developer / მართვა
+          </button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       DEVELOPER / ADMIN MODAL (AVAILABLE IN ADMIN MODE)
+       ========================================================================== -->
+  <div id="adminModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="adminModalTitle">
+    <div class="modal-card admin-modal-card">
+      <button id="adminModalClose" class="modal-close-btn" aria-label="Close modal">✕</button>
+
+      <div style="margin-bottom: 16px;">
+        <h3 id="adminModalTitle"
+          style="font-size: 1.6rem; font-family: var(--font-serif); color: var(--color-espresso); margin-bottom: 4px;">
+          ⚙️ ადმინ პანელი & მართვა
+        </h3>
+        <p style="font-size: 0.88rem; color: var(--color-text-secondary);">
+          მართეთ სამუშაო გრაფიკი, სიახლეები და ფასები კოდში ქექვის გარეშე.
+        </p>
+      </div>
+
+      <div class="admin-tabs">
+        <button type="button" class="admin-tab-btn active" data-admin-view="slots">
+          📅 სლოტები & კალენდარი
+        </button>
+        <button type="button" class="admin-tab-btn" data-admin-view="bookings">
+          📋 ჯავშნები
+        </button>
+        <button type="button" class="admin-tab-btn" data-admin-view="texts">
+          📝 საიტის ტექსტები
+        </button>
+        <button type="button" class="admin-tab-btn" data-admin-view="news">
+          📰 სიახლეების მართვა
+        </button>
+        <button type="button" class="admin-tab-btn" data-admin-view="prices">
+          💰 ფასების მართვა
+        </button>
+        <button type="button" class="admin-tab-btn" data-admin-view="contacts">
+          ⚙️ კონტაქტი & PIN
+        </button>
+      </div>
+
+      <!-- VIEW: SLOTS -->
+      <div id="adminView_slots">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+          <span style="font-size: 0.85rem; color: var(--color-text-muted);">
+            სტატუსის შეცვლა (თავისუფალი / დაკავებული):
+          </span>
+          <button type="button" id="adminGenerateMonthSlotsBtn"
+            style="font-size: 0.82rem; color: var(--color-sage-active); font-weight: 600; cursor: pointer; text-decoration: underline;">
+            + მიმდინარე თვის სლოტების გენერირება
+          </button>
+        </div>
+
+        <div id="adminSlotsList" style="max-height: 280px; overflow-y: auto; padding-right: 6px;"></div>
+
+        <form id="adminAddSlotForm" class="admin-add-slot-box" style="margin-top: 14px;">
+          <div style="font-weight: 700; margin-bottom: 6px; font-size: 0.9rem; grid-column: 1 / -1;">+ კონკრეტულ თარიღზე სლოტის დამატება:</div>
+          <div>
+            <label for="adminSlotDateInput" style="display: block; font-size: 0.8rem; font-weight: 600; margin-bottom: 4px;">თარიღი</label>
+            <input type="date" id="adminSlotDateInput" class="form-input" style="padding: 10px 14px;" required>
+          </div>
+          <div>
+            <label for="adminSlotTimeInput" style="display: block; font-size: 0.8rem; font-weight: 600; margin-bottom: 4px;">საათი (მაგ: 14:00 - 15:00)</label>
+            <input type="text" id="adminSlotTimeInput" class="form-input" placeholder="14:00 - 15:00" style="padding: 10px 14px;" required>
+          </div>
+          <button type="submit" class="btn-pill btn-sage" style="padding: 10px 18px; font-size: 0.9rem;">
+            + დამატება
+          </button>
+        </form>
+      </div>
+
+      <!-- VIEW: BOOKINGS -->
+      <div id="adminView_bookings" style="display: none;">
+        <div id="adminBookingsTableContainer" style="max-height: 360px; overflow-y: auto;"></div>
+      </div>
+
+      <!-- VIEW: SITE TEXTS CMS (ნატასთვის ტექსტების რედაქტირება კოდში ქექვის გარეშე) -->
+      <div id="adminView_texts" style="display: none; max-height: 480px; overflow-y: auto; padding-right: 6px;">
+        <div style="margin-bottom: 14px; font-size: 0.88rem; color: var(--color-text-secondary);">
+          შეცვალეთ საიტის მთავარი ტექსტები და სათაურები თქვენი სურვილისამებრ კოდში ქექვის გარეშე:
+        </div>
+
+        <form id="adminCMSForm">
+          <!-- Group 1: Hero Section -->
+          <div class="admin-cms-group">
+            <div class="admin-cms-group-title">🌟 მთავარი გვერდი (Hero სექცია)</div>
+            <div class="admin-cms-field">
+              <label class="admin-cms-label">ზედა მოკლე წარწერა (Badge)</label>
+              <input type="text" class="form-input" data-cms-input="hero_badge">
+            </div>
+            <div class="admin-cms-field">
+              <label class="admin-cms-label">მთავარი სათაური (Title)</label>
+              <textarea class="admin-cms-textarea" data-cms-input="hero_title" rows="2"></textarea>
+              <div class="admin-cms-hint">სიტყვის გასამწვანებლად შეგიძლიათ გამოიყენოთ &lt;span class="highlight"&gt;სიტყვა&lt;/span&gt;</div>
+            </div>
+            <div class="admin-cms-field">
+              <label class="admin-cms-label">ქვესათაური / შესავალი ტექსტი (Subtitle)</label>
+              <textarea class="admin-cms-textarea" data-cms-input="hero_subtitle" rows="3"></textarea>
+            </div>
+            <div class="admin-cms-field">
+              <label class="admin-cms-label">ღილაკის ტექსტი (CTA)</label>
+              <input type="text" class="form-input" data-cms-input="hero_cta">
+            </div>
+          </div>
+
+          <!-- Group 2: Steps Section -->
+          <div class="admin-cms-group">
+            <div class="admin-cms-group-title">🌿 3 მარტივი ნაბიჯი (როგორ დავიწყოთ)</div>
+            <div class="admin-cms-field">
+              <label class="admin-cms-label">სექციის სათაური</label>
+              <input type="text" class="form-input" data-cms-input="steps_title">
+            </div>
+            <div class="admin-cms-field">
+              <label class="admin-cms-label">სექციის ქვესათაური</label>
+              <input type="text" class="form-input" data-cms-input="steps_subtitle">
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+              <div class="admin-cms-field">
+                <label class="admin-cms-label">ნაბიჯი 1 სათაური</label>
+                <input type="text" class="form-input" data-cms-input="step1_title">
+              </div>
+              <div class="admin-cms-field">
+                <label class="admin-cms-label">ნაბიჯი 1 აღწერა</label>
+                <textarea class="admin-cms-textarea" data-cms-input="step1_desc" rows="2"></textarea>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+              <div class="admin-cms-field">
+                <label class="admin-cms-label">ნაბიჯი 2 სათაური</label>
+                <input type="text" class="form-input" data-cms-input="step2_title">
+              </div>
+              <div class="admin-cms-field">
+                <label class="admin-cms-label">ნაბიჯი 2 აღწერა</label>
+                <textarea class="admin-cms-textarea" data-cms-input="step2_desc" rows="2"></textarea>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+              <div class="admin-cms-field">
+                <label class="admin-cms-label">ნაბიჯი 3 სათაური</label>
+                <input type="text" class="form-input" data-cms-input="step3_title">
+              </div>
+              <div class="admin-cms-field">
+                <label class="admin-cms-label">ნაბიჯი 3 აღწერა</label>
+                <textarea class="admin-cms-textarea" data-cms-input="step3_desc" rows="2"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <!-- Group 3: Services Section -->
+          <div class="admin-cms-group">
+            <div class="admin-cms-group-title">🛋️ თერაპიის ფორმატები & სერვისები</div>
+            <div style="border-bottom: 1px dashed var(--color-border); padding-bottom: 10px; margin-bottom: 10px;">
+              <strong style="font-size: 0.85rem; color: var(--color-sage-active);">1. ინდივიდუალური თერაპია:</strong>
+              <div class="admin-cms-field" style="margin-top: 6px;">
+                <label class="admin-cms-label">სათაური</label>
+                <input type="text" class="form-input" data-cms-input="service_indiv_title">
+              </div>
+              <div class="admin-cms-field">
+                <label class="admin-cms-label">ხანგრძლივობა</label>
+                <input type="text" class="form-input" data-cms-input="service_indiv_time">
+              </div>
+              <div class="admin-cms-field">
+                <label class="admin-cms-label">აღწერა</label>
+                <textarea class="admin-cms-textarea" data-cms-input="service_indiv_desc" rows="2"></textarea>
+              </div>
+            </div>
+            <div style="border-bottom: 1px dashed var(--color-border); padding-bottom: 10px; margin-bottom: 10px;">
+              <strong style="font-size: 0.85rem; color: var(--color-terracotta);">2. წყვილთა თერაპია:</strong>
+              <div class="admin-cms-field" style="margin-top: 6px;">
+                <label class="admin-cms-label">სათაური</label>
+                <input type="text" class="form-input" data-cms-input="service_couples_title">
+              </div>
+              <div class="admin-cms-field">
+                <label class="admin-cms-label">ხანგრძლივობა</label>
+                <input type="text" class="form-input" data-cms-input="service_couples_time">
+              </div>
+              <div class="admin-cms-field">
+                <label class="admin-cms-label">აღწერა</label>
+                <textarea class="admin-cms-textarea" data-cms-input="service_couples_desc" rows="2"></textarea>
+              </div>
+            </div>
+            <div>
+              <strong style="font-size: 0.85rem; color: var(--color-amber);">3. ჯგუფური თერაპია:</strong>
+              <div class="admin-cms-field" style="margin-top: 6px;">
+                <label class="admin-cms-label">სათაური</label>
+                <input type="text" class="form-input" data-cms-input="service_group_title">
+              </div>
+              <div class="admin-cms-field">
+                <label class="admin-cms-label">ხანგრძლივობა</label>
+                <input type="text" class="form-input" data-cms-input="service_group_time">
+              </div>
+              <div class="admin-cms-field">
+                <label class="admin-cms-label">აღწერა</label>
+                <textarea class="admin-cms-textarea" data-cms-input="service_group_desc" rows="2"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <!-- Group 4: WhatsApp Callout -->
+          <div class="admin-cms-group">
+            <div class="admin-cms-group-title">💬 WhatsApp შეტყობინების ბლოკი</div>
+            <div class="admin-cms-field">
+              <label class="admin-cms-label">ბლოკის სათაური</label>
+              <input type="text" class="form-input" data-cms-input="callout_title">
+            </div>
+            <div class="admin-cms-field">
+              <label class="admin-cms-label">ბლოკის აღწერა</label>
+              <textarea class="admin-cms-textarea" data-cms-input="callout_desc" rows="2"></textarea>
+            </div>
+          </div>
+
+          <!-- Group 5: Footer About -->
+          <div class="admin-cms-group">
+            <div class="admin-cms-group-title">ℹ️ Footer-ის მოკლე აღწერა</div>
+            <div class="admin-cms-field">
+              <label class="admin-cms-label">საიტის მოკლე აღწერა Footer-ში</label>
+              <textarea class="admin-cms-textarea" data-cms-input="footer_about" rows="2"></textarea>
+            </div>
+          </div>
+
+          <div class="admin-cms-actions">
+            <div style="display: flex; gap: 8px;">
+              <button type="submit" class="btn-pill btn-sage" style="padding: 10px 22px; font-size: 0.92rem;">
+                💾 ტექსტების შენახვა
+              </button>
+              <button type="button" id="adminResetCMSBtn" class="btn-pill btn-outline" style="padding: 10px 16px; font-size: 0.85rem;">
+                🔄 საწყისზე დაბრუნება
+              </button>
+            </div>
+            <button type="button" id="adminExportCMSBtn" style="font-size: 0.82rem; color: var(--color-sage-active); text-decoration: underline; background: none; border: none; cursor: pointer;">
+              📥 ტექსტების ექსპორტი (JSON)
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- VIEW: NEWS CMS -->
+      <div id="adminView_news" style="display: none;">
+        <div style="margin-bottom: 12px; font-size: 0.88rem; color: var(--color-text-secondary);">
+          დაამატეთ ან წაშალეთ სიახლეები საიტზე კოდში ჩარევის გარეშე:
+        </div>
+
+        <form id="adminAddNewsForm" style="background: var(--color-bg-card-subtle); padding: 16px; border-radius: var(--radius-md); border: 1px dashed var(--color-border); margin-bottom: 16px;">
+          <div style="font-weight: 700; margin-bottom: 8px;">+ ახალი სიახლის / ანონსის დამატება:</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px;">
+            <div>
+              <label for="adminNewsTitle" style="display: block; font-size: 0.8rem; font-weight: 600;">სათაური</label>
+              <input type="text" id="adminNewsTitle" class="form-input" placeholder="მაგ: ახალი ჯგუფი იწყება" required>
+            </div>
+            <div>
+              <label for="adminNewsCategory" style="display: block; font-size: 0.8rem; font-weight: 600;">კატეგორია</label>
+              <select id="adminNewsCategory" class="form-input">
+                <option value="სიახლე">სიახლე</option>
+                <option value="ჯგუფი">ჯგუფი</option>
+                <option value="სტატია & რჩევა">სტატია & რჩევა</option>
+                <option value="ღონისძიება">ღონისძიება</option>
+              </select>
+            </div>
+          </div>
+          <div style="margin-bottom: 10px;">
+            <label for="adminNewsDate" style="display: block; font-size: 0.8rem; font-weight: 600;">თარიღი (ტექსტი)</label>
+            <input type="text" id="adminNewsDate" class="form-input" placeholder="მაგ: 15 ნოემბერი, 2026">
+          </div>
+          <div style="margin-bottom: 10px;">
+            <label for="adminNewsDesc" style="display: block; font-size: 0.8rem; font-weight: 600;">მოკლე ტექსტი</label>
+            <textarea id="adminNewsDesc" class="form-input" rows="3" placeholder="სიახლის მოკლე აღწერა..." required></textarea>
+          </div>
+          <button type="submit" class="btn-pill btn-sage" style="padding: 9px 20px; font-size: 0.9rem;">
+            + სიახლის გამოქვეყნება
+          </button>
+        </form>
+
+        <div style="font-weight: 700; font-size: 0.92rem; margin-bottom: 8px;">გამოქვეყნებული სიახლეები:</div>
+        <div id="adminNewsList" style="max-height: 240px; overflow-y: auto;"></div>
+      </div>
+
+      <!-- VIEW: PRICES -->
+      <div id="adminView_prices" style="display: none;">
+        <div style="margin-bottom: 14px; font-size: 0.88rem; color: var(--color-text-secondary);">
+          შეცვალეთ სერვისების ფასები (ავტომატურად აისახება სერვისების გვერდსა და ჯავშნის ფორმაში):
+        </div>
+
+        <form id="adminPricesForm" style="background: var(--color-bg-card-subtle); padding: 18px; border-radius: var(--radius-md); border: 1px solid var(--color-border);">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px;">
+            <div>
+              <label for="adminPriceIndividual" style="display: block; font-size: 0.82rem; font-weight: 600; margin-bottom: 4px;">ინდივიდუალური თერაპია (სესია)</label>
+              <input type="number" id="adminPriceIndividual" class="form-input" placeholder="120" required>
+            </div>
+            <div>
+              <label for="adminPriceCouples" style="display: block; font-size: 0.82rem; font-weight: 600; margin-bottom: 4px;">წყვილთა თერაპია (სესია)</label>
+              <input type="number" id="adminPriceCouples" class="form-input" placeholder="180" required>
+            </div>
+            <div>
+              <label for="adminPriceGroup" style="display: block; font-size: 0.82rem; font-weight: 600; margin-bottom: 4px;">ჯგუფური თერაპია (სესია)</label>
+              <input type="number" id="adminPriceGroup" class="form-input" placeholder="60" required>
+            </div>
+            <div>
+              <label for="adminPriceCurrency" style="display: block; font-size: 0.82rem; font-weight: 600; margin-bottom: 4px;">ვალუტა</label>
+              <input type="text" id="adminPriceCurrency" class="form-input" placeholder="₾" required>
+            </div>
+          </div>
+          <button type="submit" class="btn-pill btn-sage" style="padding: 10px 22px; font-size: 0.92rem;">
+            💾 ფასების შენახვა
+          </button>
+        </form>
+      </div>
+
+      <!-- VIEW: CONTACTS & PIN -->
+      <div id="adminView_contacts" style="display: none;">
+        <div style="margin-bottom: 14px; font-size: 0.88rem; color: var(--color-text-secondary);">
+          შეცვალეთ ტელეფონი, მისამართები, Instagram და ადმინის PIN კოდი:
+        </div>
+
+        <form id="adminContactForm" style="background: var(--color-bg-card-subtle); padding: 18px; border-radius: var(--radius-md); border: 1px solid var(--color-border);">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px;">
+            <div>
+              <label for="adminPhoneDisplay" style="display: block; font-size: 0.8rem; font-weight: 600;">ტელეფონი (გამოსაჩენი)</label>
+              <input type="text" id="adminPhoneDisplay" class="form-input" placeholder="599 011 009" required>
+            </div>
+            <div>
+              <label for="adminPhoneFull" style="display: block; font-size: 0.8rem; font-weight: 600;">სრული ფორმატი</label>
+              <input type="text" id="adminPhoneFull" class="form-input" placeholder="+995 599 01 10 09" required>
+            </div>
+            <div>
+              <label for="adminPhoneRaw" style="display: block; font-size: 0.8rem; font-weight: 600;">ტელეფონი (tel:)</label>
+              <input type="text" id="adminPhoneRaw" class="form-input" placeholder="+995599011009" required>
+            </div>
+            <div>
+              <label for="adminWhatsappRaw" style="display: block; font-size: 0.8rem; font-weight: 600;">WhatsApp (ციფრები)</label>
+              <input type="text" id="adminWhatsappRaw" class="form-input" placeholder="995599011009" required>
+            </div>
+            <div>
+              <label for="adminAddress1" style="display: block; font-size: 0.8rem; font-weight: 600;">ლოკაცია 1</label>
+              <input type="text" id="adminAddress1" class="form-input" placeholder="პლეხანოვი, აღმაშენებლის გამზირი" required>
+            </div>
+            <div>
+              <label for="adminAddress2" style="display: block; font-size: 0.8rem; font-weight: 600;">ლოკაცია 2</label>
+              <input type="text" id="adminAddress2" class="form-input" placeholder="ვაკე, მიხეილ თამარაშვილის ქუჩა" required>
+            </div>
+            <div>
+              <label for="adminInstagram" style="display: block; font-size: 0.8rem; font-weight: 600;">Instagram ბმული</label>
+              <input type="text" id="adminInstagram" class="form-input" placeholder="https://instagram.com/gestaltholic">
+            </div>
+            <div>
+              <label for="adminEmail" style="display: block; font-size: 0.8rem; font-weight: 600;">ელფოსტა</label>
+              <input type="email" id="adminEmail" class="form-input" placeholder="contact@gesthaltholik.ge">
+            </div>
+          </div>
+          <div style="margin-bottom: 14px;">
+            <label for="adminPin" style="display: block; font-size: 0.8rem; font-weight: 600;">ადმინის PIN კოდი (საიდუმლო შესვლისთვის)</label>
+            <input type="text" id="adminPin" class="form-input" placeholder="1234" style="max-width: 200px;">
+          </div>
+          <div style="margin-bottom: 14px;">
+            <label for="adminCloudSyncUrl" style="display: block; font-size: 0.8rem; font-weight: 600;">☁️ Cloud სინქრონიზაცია (Firebase/Supabase REST URL - სურვილისამებრ)</label>
+            <input type="text" id="adminCloudSyncUrl" class="form-input" placeholder="https://your-project.firebaseio.com/gestaltholic.json">
+            <div style="font-size: 0.74rem; color: var(--color-text-muted); margin-top: 2px;">
+              მითითების შემთხვევაში, ნატას მიერ შეცვლილი ტექსტები და ფასები ავტომატურად გაიგზავნება ღრუბელში და აისახება ყველა მომხმარებელთან.
+            </div>
+          </div>
+
+          <div style="margin-bottom: 6px; padding: 14px 16px; background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: var(--radius-md);">
+            <div style="font-weight: 700; font-size: 0.88rem; color: #166534; margin-bottom: 10px;">✉️ EmailJS — ავტომატური მეილი ჯავშნისას</div>
+            <div style="display: grid; grid-template-columns: 1fr; gap: 8px;">
+              <div>
+                <label for="adminEmailjsPublicKey" style="display: block; font-size: 0.8rem; font-weight: 600; color: #166534;">Public Key (Account › API Keys)</label>
+                <input type="text" id="adminEmailjsPublicKey" class="form-input" placeholder="xxxxxxxxxxxxxxxxx">
+              </div>
+              <div>
+                <label for="adminEmailjsServiceId" style="display: block; font-size: 0.8rem; font-weight: 600; color: #166534;">Service ID (Email Services)</label>
+                <input type="text" id="adminEmailjsServiceId" class="form-input" placeholder="service_xxxxxxx">
+              </div>
+              <div>
+                <label for="adminEmailjsTemplateId" style="display: block; font-size: 0.8rem; font-weight: 600; color: #166534;">Template ID (Email Templates)</label>
+                <input type="text" id="adminEmailjsTemplateId" class="form-input" placeholder="template_xxxxxxx">
+              </div>
+            </div>
+            <div style="font-size: 0.74rem; color: #166534; margin-top: 8px;">
+              გაწყობის შემდეგ, კლიენტის ჯავშნისას მეილი ავტომატურად მოვა ნატას inbox-ში. <a href="https://www.emailjs.com" target="_blank" style="color: #166534; font-weight: 700;">emailjs.com</a> (უფასო, 200 მეილი/თვეში)
+            </div>
+          </div>
+          <button type="submit" class="btn-pill btn-sage" style="padding: 10px 22px; font-size: 0.92rem;">
+            💾 მონაცემების შენახვა
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Quick Action Bar for Mobile -->
+  <div class="floating-book-bar">
+    <a href="booking.html" class="btn-pill btn-sage">
+      📅 დაჯავშნა
+    </a>
+    <a href="https://wa.me/995599011009?text=გამარჯობა%20ნატა,%20მსურს%20კონსულტაციაზე%20ჩაწერა" target="_blank"
+      rel="noopener noreferrer" class="btn-pill btn-whatsapp">
+      💬 WhatsApp
+    </a>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="i18n.js"></script>
+  <script src="booking.js"></script>
+  <script src="main.js"></script>
+</body>
+
+</html>
